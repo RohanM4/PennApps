@@ -97,6 +97,7 @@
 		1CAF50862AABF2E9008CC7B5 /* KitKot */ = {
 			isa = PBXGroup;
 			children = (
+				1CAF50B72AAC0701008CC7B5 /* Onboarding */,
 				1CAF50872AABF2E9008CC7B5 /* AppDelegate.swift */,
 				1CAF50892AABF2E9008CC7B5 /* SceneDelegate.swift */,
 				1CAF508B2AABF2E9008CC7B5 /* ViewController.swift */,
@@ -122,6 +123,13 @@
 				1CAF50AA2AABF2EA008CC7B5 /* KitKotUITestsLaunchTests.swift */,
 			);
 			path = KitKotUITests;
+			sourceTree = "<group>";
+		};
+		1CAF50B72AAC0701008CC7B5 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
