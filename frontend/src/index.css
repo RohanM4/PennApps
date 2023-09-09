@@ -1,9 +1,14 @@
+@font-face {
+  font-family: 'MedievalSharp-Regular';
+  src: local('MyFont'), url(./fonts/MedievalSharp/MedievalSharp-Regular.ttf) format('woff');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-family: 'MedievalSharp-Regular', serif;
   -moz-osx-font-smoothing: grayscale;
 }
 

@@ -77,3 +77,35 @@
 .one_inverted { transform: rotate(45deg) translate(130px); }
 .two_inverted { transform: rotate(90deg) translate(130px); }
 .three_inverted { transform: rotate(135deg) translate(130px); }
+
+
+.top_right {
+  top: 150px;
+  right: 300px;
+}
+
+.top_middle {
+  top: 400px;
+  margin-left: 300px;
+}
+
+.top_left {
+  top: 250px;
+  left: 500px;
+}
+
+
+.bottom_right {
+  bottom: 200px;
+  right: 500px;
+}
+
+.bottom_middle {
+  bottom: 320px;
+  margin-left: 40px;
+}
+
+.bottom_left {
+  bottom: 200px;
+  left: 500px;
+}
