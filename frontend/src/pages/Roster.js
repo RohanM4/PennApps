@@ -10,6 +10,7 @@ export default function Roster() {
     const [commanderPerkDescription, setCommanderPerkDescription] = useState('');
     const [commanderStats, setCommanderStats] = useState('')
     const [activeMercenaries, setActiveMercenaries] = useState([])
+    const [data, setData] = useState({})
 
     useEffect(() => {
         fetch('http://127.0.0.1:5000/get-roster')
@@ -17,6 +18,8 @@ export default function Roster() {
             .then(data => {
                 
                 console.log(data)
+                setData(data);
+                console.log(data.roster)
                 setCommanderStats(data.commanderAttributes);
                 setCommanderPerkDescription(data.commanderPerkDescription);
                 setCommanderPerk(data.commanderPerk);
@@ -71,7 +74,7 @@ export default function Roster() {
 
             <h2 className='text-5xl mt-12 text-white'>Roster</h2>
             <div className='w-full mx-16'>
-                <RosterCarousel />
+                {data.roster.length !== 0 && <RosterCarousel />} 
             </div>
 
         </div>

@@ -3,21 +3,81 @@ import CommanderCarousel from "../components/Onboarding/CommanderCarousel"
 export default function Onboarding(props) {
     const [playerSelection, setPlayerSelection] = useState(null)
     const [perkSelection, setPerkSelection] = useState(null);
+
     const handleSubmit = () => {
-        // fetch('http://127.0.0.1:5000/write-to-file', {method: 'POST', body: {playerSelection: playerSelection, perkSelection: perkSelection}})
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         window.location.href = "/homepage"
-        //     })
-        setTimeout(() => {
-            window.location.href = "/homepage"
-        }, 2000)
+        fetch('http://127.0.0.1:5000/write-to-file', {method: 'POST', body: JSON.stringify(requestBody)})
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                window.location.href = "/homepage"
+            })
+        // setTimeout(() => {
+        //     window.location.href = "/homepage"
+        // }, 2000)
 
     }
     const [attack, setAttack] = useState(0);
     const [defense, setDefense] = useState(0);
     const [stealth, setStealth] = useState(0);
+
+    const requestBody = {	
+        "cards" : [
+            {
+                "type" : "commander",
+                "name" : "Dark K. Night",
+                "id" : 1,
+                "perk" : "Sworn to the Night",
+                "perk-desc" : "Succesfully KO'ing an opponent grants +1 to the Stealth Stat",
+                "games" : -1,
+                "att" : attack,
+                "def" : defense,
+                "ste" : stealth,
+                "hp" : 15,
+                "image" : "char4.png"
+            },
+            {
+                "type" : "mercenary",
+                "name" : "joe mama",
+                "id" : 2,
+                "perk" : null,
+                "perk-desc" : null,
+                "games" : 5,
+                "att" : 7,
+                "def" : 3,
+                "ste" : 4,
+                "hp" : 15,
+                "image" : "char1.png"
+            },
+            {
+                "type" : "mercenary",
+                "name" : "b",
+                "id" : 3,
+                "perk" : null,
+                "perk-desc" : null,
+                "games" : 5,
+                "att" : 7,
+                "def" : 3,
+                "ste" : 4,
+                "hp" : 15,
+                "image" : "char1.png"
+            },
+            {
+                "type" : "mercenary",
+                "name" : "Ben Dover",
+                "id" : 4,
+                "perk" : null,
+                "perk-desc" : null,
+                "games" : 5,
+                "att" : 7,
+                "def" : 3,
+                "ste" : 4,
+                "hp" : 15,
+                "image" : "char1.png"
+            }
+        ],
+        "roster" : [
+        ]
+    }
 
 
     const increaseAttack = () => {

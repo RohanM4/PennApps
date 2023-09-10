@@ -1,13 +1,16 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, Response
 from corsOrigins import getOrigins
 from flask_cors import CORS, cross_origin
 from cryptography.fernet import Fernet
 import os 
 import json
+from flask import request
 
 KEY = '-BIKN0RdQBg1FDWPyNOCaFzS6e9LfxHa95O431zD1hE='
 
 application = Flask(__name__)
+CORS(application)
+
 
 
 @application.route("/")
@@ -17,6 +20,12 @@ def hello_world():
 
 def generate_key():
     return Fernet.generate_key()
+
+def write_drive(drive_path, data, key):
+    encrypted_data = encrypt(data, key)
+    with open(os.path.join(drive_path, 'data.bin'), "wb") as encrypted_file:
+        encrypted_file.write(encrypted_data)
+
 
 def encrypt(data, key):
     fernet = Fernet(key)
@@ -71,11 +80,22 @@ def read_raw_json():
     return data
 
 
+@application.route("/write-to-file", methods=['POST'])
+@cross_origin(origins=getOrigins())
+def write_to_file():
+    try:
+        print(request)
+        drive = detect_drives()[0]
+        write_drive(drive, json.loads(request.data), KEY)
+        return jsonify({"status": "success"}), 200
+    except Exception as e:
+        print(str(e))
+        return jsonify({"status": "failed"}), 400
+
 @application.route("/get-roster")
 @cross_origin(origins=getOrigins())
 def get_roster():
     data = read_raw_json()[0]
-    print(data)
     cards = data["cards"]
     roster = data["roster"]
     result = {}
@@ -92,26 +112,54 @@ def get_roster():
     result["roster"] = roster
     print(result)
     return jsonify(result)
-            
-    
-    
-    # read from USB
-    # parse data
-    return
 
-
-    {
-        commanderImage: "/char1.png",
-        commanderName: "Commander Name",
-        perkName: "Perk Name",
-        perkDescription: "Perk Description",
-        activeDeck: ['/char2.png', 'char3.png', 'char4.png'],
-        roster: ['/char1.png', '/char2.png', '/char3.png', '/char4.png'],
-        commanderAttributes: {attack: 42, defense: 42, stealth: 42},
-        mercenaryAttributes: {}
+@application.route("/transfer-player")
+@cross_origin(origins=getOrigins())
+def transfer_player():
+    try:
+        player1 = read_raw_json()[0]
+        player2 = read_raw_json()[1]
+        # commander1 = player1["cards"][0];
+        # commander2 = player2["cards"][0];
         
-    }
-    return jsonify({"message": "Hello World"})
+        # card_to_roster2 = player2["cards"].pop()
+        # player2["cards"].append(commander1)
+        # print(player2)
+        # assert len(player2["cards"]) == 4
+        # # player2["roster"].append(card_to_roster2)
+        
+        # card_to_roster = player1["cards"].pop()
+        # player1["cards"].append(commander2)
+
+        for i in range(len(player1["cards"])):
+            if player1["cards"][i]["name"] != 'Dark K. Night':
+                player1["cards"][i]["image"] = 'char9.png'
+                break
+        for i in range(len(player2["cards"])):
+            if player2["cards"][i]["name"] != 'Skell. A. Ton':
+                player2["cards"][i]["type"] = 'char4.png'
+                break
+        
+        print('====================')
+        print(player1)
+        print('====================')
+        
+        
+        print('====================')
+        print(player2)
+        print('====================')
+        # player1["roster"].append(card_to_roster)
+        
+        drive = detect_drives()[0]
+        write_drive(drive, player1, KEY)
+        
+        
+        drive = detect_drives()[1]
+        write_drive(drive, player2, KEY)
+        return jsonify({"status": "success"}), 200
+    except Exception as e:
+        print(str(e))
+        return jsonify({"status": "failed"}), 400
 
 
 if __name__ == "__main__":

@@ -1,0 +1,58 @@
+{	
+	"cards" : [
+		{
+			"type" : "commander",
+			"name" : "Skell. A. Ton",
+			"id" : 1,
+			"perk" : "Bone Bash",
+			"perk-desc" : "Attacks do +2 Damage",
+			"games" : -1,
+			"att" : 7,
+			"def" : 3,
+			"ste" : 5,
+			"hp" : 15,
+			"image" : "char4.png"
+		},
+		{
+			"type" : "mercenary",
+			"name" : "joe mama",
+			"id" : 2,
+			"perk" : null,
+			"perk-desc" : null,
+			"games" : 5,
+			"att" : 7,
+			"def" : 3,
+			"ste" : 4,
+			"hp" : 15,
+			"image" : "char1.png"
+		},
+		{
+			"type" : "mercenary",
+			"name" : "b",
+			"id" : 3,
+			"perk" : null,
+			"perk-desc" : null,
+			"games" : 5,
+			"att" : 7,
+			"def" : 3,
+			"ste" : 4,
+			"hp" : 15,
+			"image" : "char1.png"
+		},
+        {
+			"type" : "mercenary",
+			"name" : "Ben Dover",
+			"id" : 4,
+			"perk" : null,
+			"perk-desc" : null,
+			"games" : 5,
+			"att" : 7,
+			"def" : 3,
+			"ste" : 4,
+			"hp" : 15,
+			"image" : "char1.png"
+		}
+	],
+	"roster" : [
+    ]
+}

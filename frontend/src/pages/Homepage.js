@@ -3,11 +3,16 @@ import song from '../assets/song.mp3'
 
 export default function Homepage() {
     const handleEject = () => {
-        alert('Ejecting Drive')
+        window.close();
     }
 
     const transferPlayer = () => {
-        alert('Transferring Player')
+        fetch('http://127.0.0.1:5000/transfer-player')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                alert('Transferring Player')
+            })
     }
 
     const [play] = useSound(song, {volume: 0.25})
@@ -23,7 +28,7 @@ export default function Homepage() {
                 <a href="/roster" className="text-center button_color text-white font-bold py-2 px-4 rounded w-2/5 h-12 text-3xl">Roster</a>
                 <a href="/battle" className="text-center button_color text-white font-bold py-2 px-4 rounded w-2/5  h-12 text-3xl mt-12">Battle</a>
                 <button onClick={transferPlayer} className="button_color text-white font-bold py-2 px-4 rounded w-2/5  h-12 text-3xl mt-12">Transfer Player</button>
-                <button onClick={handleEject} className="button_color text-white font-bold py-2 px-4 rounded w-2/5  h-12 text-3xl mt-12">Eject Drive</button>
+                <button onClick={handleEject} className="button_color text-white font-bold py-2 px-4 rounded w-2/5  h-12 text-3xl mt-12">Quit Application</button>
             </div>
         </div>
     )
