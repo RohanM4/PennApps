@@ -1,0 +1,16 @@
+{	
+	"cards" : [
+		{
+			"type" : "commander",
+			"id" : 1,
+			"perk" : 1,
+			"rounds" : -1,
+			"att" : 7,
+			"def" : 3,
+			"ste" : 4,
+			"hp" : 15,
+			"image" : "char1.png"
+		}
+	],
+	"roster" : []
+}
