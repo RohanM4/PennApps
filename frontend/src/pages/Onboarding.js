@@ -9,7 +9,7 @@ export default function Onboarding(props) {
     return (
         <div className="w-100 min-h-screen flex flex-col items-center pt-12">
         <h1 className="text-7xl">Select Your Commander</h1>
-        <div id="123" className="flex justify-center mt-8 w-full h-80 bg-green-200">
+        <div id="123" className="flex justify-center mt-8 w-full h-80">
             <div style={{
                 width:"100%",
                 height: "100%",
@@ -27,7 +27,7 @@ export default function Onboarding(props) {
             </div>
         </div>
 
-        <div class="grid grid-cols-4 gap-4 w-full h-80 bg-red-200 mt-8">
+        <div class="grid grid-cols-4 gap-4 w-full h-80 bg-red-200 mt-24">
             <button className="w-full h-full bg-yellow-200 rounded-md">01</button>
             <button className="w-full h-full bg-yellow-200 rounded-md">02</button>
             <button className="w-full h-full bg-yellow-200 rounded-md">03</button>

@@ -1,18 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
-import {ReactComponent as CharacterOne} from '../../assets/characters/char1.svg';
-import {ReactComponent as CharacterTwo} from '../../assets/characters/char2.svg';
-import {ReactComponent as CharacterFour} from '../../assets/characters/char4.svg';
-import {ReactComponent as CharacterFive} from '../../assets/characters/char5.svg';
-import {ReactComponent as CharacterSix} from '../../assets/characters/char6.svg';
-import {ReactComponent as CharacterSeven} from '../../assets/characters/char7.svg';
-import {ReactComponent as CharacterEight} from '../../assets/characters/char8.svg';
-export default function SimpleSlider() {
+
+export default function RosterCarousel() {
   var settings = {
     dots: true,
     speed: 500,
     infinite: false,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
   };
   const images = [
@@ -28,7 +22,7 @@ export default function SimpleSlider() {
     <Slider {...settings}>
         {images.map((image, index) => (
             <div key={index}>
-                <img src={image.source} width="400" height="400" />
+                <img src={image.source} width="200" height="200" />
             </div>
         ))}
         {/* <div className="container">
