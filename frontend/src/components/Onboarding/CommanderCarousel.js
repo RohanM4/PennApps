@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Slider from "react-slick";
 import {ReactComponent as CharacterOne} from '../../assets/characters/char1.svg';
 import {ReactComponent as CharacterTwo} from '../../assets/characters/char2.svg';
@@ -15,20 +15,20 @@ export default function SimpleSlider() {
     slidesToShow: 3,
     slidesToScroll: 1,
   };
-  const images = [
-    {source: require('../../assets/characters/png/char2.png')}, 
-    {source: require('../../assets/characters/png/char3.png')}, 
-    {source: require('../../assets/characters/png/char5.png')}, 
+  const images = [ 
     {source: require('../../assets/characters/png/char4.png')}, 
-    {source: require('../../assets/characters/png/char2.png')}, 
-    {source: require('../../assets/characters/png/char3.png')}, 
-    {source: require('../../assets/characters/png/char5.png')}, 
-    {source: require('../../assets/characters/png/char4.png')}]
+    {source: require('../../assets/characters/png/char9.png')}, 
+]
+    const [imageClass, setImageClass] = useState('border border-8 border-yellow-400')
+    const [selected, setSelected] = useState(0)
   return (
     <Slider {...settings}>
         {images.map((image, index) => (
-            <div key={index}>
-                <img src={image.source} width="400" height="400" />
+            <div key={index} className="mx-4">
+                <img onClick={() => {
+                    setImageClass('border border-8 border-yellow-400')
+                    setSelected(index)
+                }} src={image.source} className={index === selected ? imageClass : ''} width="400" height="400" />
             </div>
         ))}
         {/* <div className="container">

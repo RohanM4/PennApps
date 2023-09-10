@@ -190,6 +190,18 @@
 }
 
 
+.orb {
+  background-image: url('./assets/orb.png');
+  background-repeat: no-repeat;
+  background-size: 80px 80px;
+}
+
+.orb_small {
+  background-image: url('./assets/orb.png');
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}
+
 
 .orb-left {
   position: absolute;
