@@ -8,7 +8,7 @@ export default function Homepage() {
     }
 
     return (
-        <div className="w-100 min-h-screen flex flex-col items-center bg-green-200 pt-48">
+        <div className="w-100 min-h-screen flex flex-col items-center main_background pt-48">
             <h1 className="text-9xl">Homepage</h1>
             <div className="justify-center items-center flex flex-col mt-36 px-24 w-full">
                 <a href="/roster" className="text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/5 h-12 text-3xl">Roster</a>

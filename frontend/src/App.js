@@ -8,7 +8,7 @@ import Roster from './pages/Roster'
 import Onboarding from './pages/Onboarding';
 
 function App() {
-  const [showOnboarding, setShowOnboarding] = useState(true)
+  const [showOnboarding, setShowOnboarding] = useState(false)
   useEffect(() => {
     // some fetch call to check if user has onboarded
   }, [])
