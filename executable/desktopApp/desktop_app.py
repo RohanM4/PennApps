@@ -16,8 +16,11 @@ def start_npm():
         pass
 
 app = tk.Tk()
-app.title("NPM Start GUI")
+app.title("PlayPort Select Screen")
 
+bg_image = tk.PhotoImage(file="battle_background.jpeg")
+bg_label = tk.Label(app, image=bg_image)
+bg_label.place(relwidth=1, relheight=1)
 
 choices = ["Select an option", "Flash Kingdom"]
 choice_var = tk.StringVar(value=choices[0])
