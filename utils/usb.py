@@ -24,7 +24,10 @@ def read_drive(drive_path):
         if not files:
             print(f"The USB drive '{drive_path}' is empty.")
             return None
-        return files
+        for file in files:
+            if file == 'data.bin':
+                return file
+        return None
     else:
         print(f"The path '{drive_path}' does not exist or is not a directory.")
         return None
@@ -37,3 +40,20 @@ def write_drive(drive_path, data, key):
     with open(os.path.join(drive_path, 'data.bin'), "wb") as encrypted_file:
         encrypted_file.write(encrypted_data)
 
+
+
+# How to write to the USB 
+KEY = '-BIKN0RdQBg1FDWPyNOCaFzS6e9LfxHa95O431zD1hE='
+
+import os
+import json
+
+drive = detect_drives()[0]
+with open(os.path.join(os.getcwd(), 'utils/example.json'), 'r') as file:
+    write_drive(drive, json.load(file), KEY)
+
+# How to read from the USB
+data = []
+for drive in detect_drives():
+    file = read_drive(drive)
+    data.append(read_file(os.path.join(drive, file), KEY))
