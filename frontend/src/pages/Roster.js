@@ -1,10 +1,8 @@
-import CommanderImage from '../assets/characters/png/char1.png'
-import {ReactComponent as PlayerTwoIcon} from '../assets/characters/char5.svg';
-import {ReactComponent as PlayerThreeIcon} from '../assets/characters/char6.svg';
-import {ReactComponent as PlayerFourIcon} from '../assets/characters/char8.svg';
-import CommanderCarousel from '../components/Onboarding/CommanderCarousel';
+import { useState } from 'react';
 import RosterCarousel from '../components/Roster/RosterCarousel';
+import StatsModal from '../components/Roster/Modal';
 export default function Roster() {
+    const [open, setOpen] = useState(false)
     return (
         <div className="w-100 min-h-screen py-8 px-4 battle_background pb-64">
             <div className='w-96 h-60 bg-blue-200 absolute stat_position rounded-xl'>
@@ -36,10 +34,11 @@ export default function Roster() {
             </div>
             <h2 className='text-5xl mt-12 text-white'>Active Mercenaries</h2>
             <div className='w-full h-56 flex flex-row justify-around'>
-                <img src={require('../assets/characters/png/char2.png')} className="w-60 h-60 py-4 px-2 mt-4"/>
-                <img src={require('../assets/characters/png/char3.png')} className="w-60 h-60 py-4 px-2 mt-4"/>
-                <img src={require('../assets/characters/png/char4.png')} className="w-60 h-60 py-4 px-2 mt-4"/>
+                <img onClick={() => setOpen(true)} src={require('../assets/characters/png/char2.png')} className="w-60 h-60 py-4 px-2 mt-4 cursor-pointer"/>
+                <img onClick={() => setOpen(true)} src={require('../assets/characters/png/char3.png')} className="w-60 h-60 py-4 px-2 mt-4 cursor-pointer"/>
+                <img onClick={() => setOpen(true)} src={require('../assets/characters/png/char4.png')} className="w-60 h-60 py-4 px-2 mt-4 cursor-pointer"/>
             </div>
+            <StatsModal open={open} setOpen={setOpen} />
 
             <h2 className='text-5xl mt-12 text-white'>Roster</h2>
             <div className='w-full mx-16'>

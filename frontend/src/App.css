@@ -80,32 +80,69 @@
 
 
 .top_right {
-  top: 150px;
-  right: 300px;
+  top: 100px;
+  right: 200px;
+}
+
+.top_right_moved {
+  right: 600px;
+}
+
+
+.top_right_move_assist {
+  top: 425px;
+  transition:all 1s linear;
+}
+
+.top_right_orb {
+  top: 130px;
+  right: 200px;
 }
 
 .top_middle {
-  top: 400px;
-  margin-left: 300px;
+  top: 425px;
+  transition:all 1s linear;
+  left: 300px;
 }
 
+.top_middle_moved {
+  left: 600px;
+}
+
+
+.top_middle_move_assist {
+  top: 425px;
+  transition:all 1s linear;
+}
+
+
 .top_left {
-  top: 250px;
-  left: 500px;
+  top: 100px;
+  left: 200px;
 }
 
 
 .bottom_right {
-  bottom: 200px;
-  right: 500px;
+  bottom: 100px;
+  right: 200px;
 }
 
 .bottom_middle {
-  bottom: 320px;
-  margin-left: 40px;
+  bottom: 425px;
+  right: 350px;
 }
 
-.bottom_left {
-  bottom: 200px;
-  left: 500px;
+.bottom_middle_moved {
+  right: 600px;
+}
+
+
+.bottom_middle_move_assist {
+  top: 425px;
+  transition:all 1s linear;
+}
+
+.bottom_left {  
+  bottom: 100px;
+  left: 200px;
 }
