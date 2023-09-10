@@ -91,7 +91,7 @@
 
 .top_right_move_assist {
   top: 425px;
-  transition:all 1s linear;
+  transition:all 0.5s linear;
 }
 
 .top_right_orb {
@@ -101,7 +101,7 @@
 
 .top_middle {
   top: 425px;
-  transition:all 1s linear;
+  transition:all 0.5s linear;
   left: 300px;
 }
 
@@ -112,7 +112,7 @@
 
 .top_middle_move_assist {
   top: 425px;
-  transition:all 1s linear;
+  transition:all 0.5s linear;
 }
 
 
@@ -122,10 +122,32 @@
 }
 
 
+.top_left_moved {
+  left: 600px;
+}
+
+
+.top_left_move_assist {
+  top: 425px;
+  transition:all 0.5s linear;
+}
+
+
 .bottom_right {
   bottom: 100px;
   right: 200px;
 }
+
+.bottom_right_moved {
+  right: 600px;
+}
+
+
+.bottom_right_move_assist {
+  bottom: 425px;
+  transition:all 0.5s linear;
+}
+
 
 .bottom_middle {
   bottom: 425px;
@@ -139,10 +161,41 @@
 
 .bottom_middle_move_assist {
   top: 425px;
-  transition:all 1s linear;
+  transition:all 0.5s linear;
 }
 
 .bottom_left {  
   bottom: 100px;
   left: 200px;
+}
+
+.bottom_left_moved {
+  left: 600px;
+}
+
+
+.bottom_left_move_assist {
+  bottom: 425px;
+  transition:all 0.5s linear;
+}
+
+
+.orb-right {
+  position: absolute;
+  background-image: url('./assets/orb.png');
+  background-repeat: no-repeat;
+  top: 600px;
+  right: 500px;
+  background-size: 80px 80px;
+}
+
+
+
+.orb-left {
+  position: absolute;
+  background-image: url('./assets/orb.png');
+  background-repeat: no-repeat;
+  top: 600px;
+  left: 500px;
+  background-size: 80px 80px;
 }
